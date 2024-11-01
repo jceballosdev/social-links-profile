@@ -22,7 +22,7 @@ const Image: React.FC<ImageProps>  = ({ src, alt}: ImageProps): JSX.Element => {
 	
 	return (
 		<img className={styles.image} src={finalSrc} alt={alt} onError={() => {
-			console.log(`Image not found or failed to load: ${src}`);
+			console.error(`Image not found or failed to load: ${src}`);
 			setHasError(true);
 		}} />
 	);

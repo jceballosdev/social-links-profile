@@ -7,9 +7,9 @@ import { profiles } from '@/data';
 
 const Profile: React.FC  = () => {
 	return (
-		<div className={styles.profile}>
+		<main className={styles.profile}>
  			<ProfileCard profile={profiles[0]} />
- 		</div>
+ 		</main>
 	);
 };
 

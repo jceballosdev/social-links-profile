@@ -4,22 +4,25 @@ import styles from './button.module.scss';
 import { SocialLink } from '@/types';
 
 export interface ButtonProps {
-	socialLinks: SocialLink;
+	link: SocialLink;
 }
 
 const Button: React.FC<ButtonProps> = ({
-	socialLinks,
+	link,
 }: ButtonProps): JSX.Element => {
+	const openLink = () => {
+		if (link.url) {
+			window.open(link.url, '_blank');
+		}
+	};
+
 	return (
-		<button
-			className={styles.button}
-			onClick={() => {
-				if (socialLinks.url) {
-					window.open(socialLinks.url, '_blank');
-				}
-			}}
+		<button 
+			className={styles.button} 
+			onClick={() => openLink()}
+			aria-label={`Open ${link.name} link in new tab`}
 		>
-			{socialLinks.name}
+			{link.name}
 		</button>
 	);
 };

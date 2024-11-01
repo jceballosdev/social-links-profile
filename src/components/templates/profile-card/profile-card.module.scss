@@ -10,13 +10,15 @@
   flex-direction: column;
   align-items: center;
   gap: $spacing-400;
+  text-align: center;
 
-  @media (min-width: $breakpoint-md) {
+  @media (max-width: $breakpoint-md) {
     max-width: 28.5rem;
   }
 
-  @media (min-width: $breakpoint-sm) {
+  @media (max-width: $breakpoint-sm) {
     max-width: 20rem;
+    padding: $spacing-400;
   }
 }
 

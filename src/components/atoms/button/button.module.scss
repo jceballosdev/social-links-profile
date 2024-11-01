@@ -12,7 +12,7 @@
   color: $white;
   font-size: $font-size-text;
   font-weight: $font-weight-bold;
-  transition: background-color 0.6s, color 0.6s;
+  transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 
   &:hover {
@@ -22,5 +22,6 @@
 
   &:focus {
     outline: 2px solid $green;
+    outline-offset: 4px;
   }
 }
