@@ -7,6 +7,7 @@ export interface TypographyProps {
 	variant: 'h1' | 'p';
 	bold?: boolean;
 	color?: 'white' | 'green';
+	id?: string;
 }
 
 const Typography: React.FC<TypographyProps> = ({
@@ -14,6 +15,7 @@ const Typography: React.FC<TypographyProps> = ({
 	variant,
 	bold = false,
 	color = 'white',
+	id,
 }: TypographyProps): JSX.Element => {
 	const Tag = variant;
 
@@ -21,6 +23,7 @@ const Typography: React.FC<TypographyProps> = ({
 
 	return (
 		<Tag
+			{...id && { id }}
 			className={`${styles[variant]} ${styles[weight]} ${styles[color]}`}
 		>
 			{children}

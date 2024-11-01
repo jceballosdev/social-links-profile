@@ -12,27 +12,30 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 	profile,
 }: ProfileCardProps): JSX.Element => {
 	return (
-		<article className={styles.profileCard}
+		<article
+			className={styles.profileCard}
 			aria-label={`Profile of ${profile.name}`}
-			aria-labelledby='introduction social-links'
-			aria-describedby='introduction social-links'
+			aria-labelledby='profile-name'
+			aria-describedby='profile-bio social-links'
 		>
 			<Image src={profile.avatar} alt={`Avatar of ${profile.name}`} />
 			<section id='introduction' className={styles.introduction}>
-				<Typography variant='h1' bold>
+				<h2 className={styles.sr_only}>Profile Information</h2>
+				<Typography variant='h1' id='profile-name' bold>
 					{profile.name}
 				</Typography>
 				<Typography variant='p' bold color='green'>
 					{profile.city}, {profile.country}
 				</Typography>
 			</section>
-			<Typography variant='p'>"{profile.bio}"</Typography>
+			<Typography variant='p' id='profile-bio'>
+				"{profile.bio}"
+			</Typography>
 			<section id='social-links' className={styles.socialLinks}>
-				{
-					profile.social.map((socialLink) => (
-						<Button key={socialLink.name} link={socialLink} />
-					))
-				}
+				<h2 className={styles.sr_only}>Social Links</h2>
+				{profile.social.map((socialLink) => (
+					<Button key={socialLink.name} link={socialLink} />
+				))}
 			</section>
 		</article>
 	);
