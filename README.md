@@ -13,12 +13,11 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
+      - [Example: Custom Button Component](#example-custom-button-component)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
   - [Author](#author)
   - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -30,83 +29,79 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Social Links Profile](./src/assets/images/screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/jceballosdev/social-links-profile](https://github.com/jceballosdev/social-links-profile)
+- Live Site URL: [https://social-links-profile-three-eta.vercel.app/](https://social-links-profile-three-eta.vercel.app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- **Semantic HTML5** for clear and accessible markup
+- **Sass** for modular and maintainable styling with variables, mixins, and nesting
+- **CSS Flexbox** for responsive layout control
+- **CSS Grid** for arranging layout where needed
+- **Atomic Design principles** to build scalable components
+- **React** and **TypeScript** for component-driven UI
+- **Vite** for fast React and TypeScript development
+- **Storybook** for component visualization and testing UI in isolation
+- **Vitest** for unit and integration tests
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+In this project, I learned the importance of accessibility when creating interactive elements. Using Sass provided great flexibility and made it easy to handle variables, such as colors and spacing consistently. Setting up **Storybook** helped visualize components and handle styling and functionality in isolation.
 
-To see how you can add code snippets, see below:
+#### Example: Custom Button Component
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```tsx
+export interface ButtonProps {
+	link: SocialLink;
 }
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+
+const Button: React.FC<ButtonProps> = ({ link }: ButtonProps): JSX.Element => {
+	const openLink = () => {
+		if (link.url) {
+			window.open(link.url, '_blank');
+		}
+	};
+
+	return (
+		<button 
+			className={styles.button} 
+			onClick={() => openLink()}
+			aria-label={`Open ${link.name} link in new tab`}
+		>
+			{link.name}
+		</button>
+	);
+};
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+This button includes an ARIA label for accessibility, ensuring that screen readers and keyboard users understand the purpose of the button.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I plan to:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Explore more advanced Sass features like conditionals and loops for large-scale styling
+- Refine my testing strategy, possibly adding accessibility tests with Axe DevTools or similar
+- Implement CI/CD practices to automate testing and deployment
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [MDN Web Docs on ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) - Great resource for learning about ARIA roles and attributes for accessible web applications.
+- [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.com/) - This post was foundational in understanding Atomic Design.
+- [Vitest Documentation](https://vitest.dev/guide/) - Vitest’s documentation was essential for setting up and writing tests for each component.
+- [Sass Documentation](https://sass-lang.com/documentation/) - Helped understand advanced Sass features.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Juan Ceballos](https://github.com/jceballosdev)
+- Frontend Mentor - [@jceballos29](https://www.frontendmentor.io/profile/jceballos29)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for these challenges that provide a great way to build real-world projects. Special thanks to the MDN community and Atomic Design for guiding my approach to component structure.
