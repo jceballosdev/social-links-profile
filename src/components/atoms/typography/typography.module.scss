@@ -1,0 +1,25 @@
+@use "@/styles/variables" as *;
+
+.h1 {
+  font-size: 1.5rem; // 24px
+}
+
+.p {
+  font-size: $font-size-text; // 14px
+}
+
+.green {
+  color: $green;
+}
+
+.white {
+  color: $white;
+}
+
+.bold {
+  font-weight: $font-weight-bold;
+}
+
+.regular {
+  font-weight: $font-weight-regular;
+}

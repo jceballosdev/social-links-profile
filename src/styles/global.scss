@@ -1,0 +1,22 @@
+@use "variables" as *;
+@use "fonts" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  font-weight: $font-weight-regular;
+  color: $white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --webkit-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,33 @@
+@use "@/styles/variables" as *;
+
+.profileCard {
+  width: 100%;
+  max-width: 24rem; // 384px
+  background-color: $grey-800;
+  border-radius: $spacing-200;
+  padding: $spacing-500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-400;
+
+  @media (min-width: $breakpoint-md) {
+    max-width: 28.5rem;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    max-width: 20rem;
+  }
+}
+
+.introduction {
+  text-align: center;
+  gap: $spacing-50;
+}
+
+.socialLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+}
